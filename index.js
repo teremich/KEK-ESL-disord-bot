@@ -3,6 +3,9 @@ const Datastore = require("nedb");
 const database = new Datastore("userxp.db");
 const client = new Discord.Client();
 require("dotenv").config();
+
+const commandHandler = require("./commands");
+
 console.log("starting");
 
 database.loadDatabase();
@@ -13,7 +16,8 @@ client.on("ready", () => {
     console.log("im ready!!");
 });
 
-function levelUp(msg) {
+async function levelUp(msg) {
+    console.log(msg);
     database.findOne({userid: msg["author"]["id"]}, (err, data) => {
         console.log(data);
         let newXP = Math.floor(Math.random()*10)+15;
@@ -30,18 +34,21 @@ function levelUp(msg) {
                     }},
                     { upsert: false, multi: false }, function () {}
                 );
+            } else {
+                database.update(
+                    { userid: msg["author"]["id"] },
+                    { $set:{
+                        time: Date.now(),
+                        xp: uxp + 1
+                    }},
+                    { upsert: false, multi: false }, function () {}
+                );
             }
         }
     });
 }
 
-function commands(msg) {
-    if (msg.channel.id == "712243995689877544" && msg.content == "!ping") {
-        msg.reply("pong");
-    }
-}
-
 client.on("message", (msg) => {
     levelUp(msg);
-    commands(msg);
+    commandHandler(msg, {db: database});
 });
