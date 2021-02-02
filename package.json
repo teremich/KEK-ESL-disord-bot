@@ -1,0 +1,25 @@
+{
+  "name": "kek-esl-disord-bot",
+  "version": "0.1.0",
+  "description": "Der Discord Bot fuer den THE KEKS Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teremich/KEK-ESL-disord-bot.git"
+  },
+  "author": "teremich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teremich/KEK-ESL-disord-bot/issues"
+  },
+  "homepage": "https://github.com/teremich/KEK-ESL-disord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {}
+}
