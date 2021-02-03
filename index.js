@@ -27,24 +27,33 @@ function rankUp(msg, xp) {
             10 blau (hihi)
             5 orange
         /**/
-        case 40:
-            role = msg.guild.roles.cache.find(role => role.name === 'DeineMutter');
-            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'türkis'));
-            break;
-        case 30:
-            role = msg.guild.roles.cache.find(role => role.name === 'türkis');
-            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'gold'));
-            break;
         case 20:
-            role = msg.guild.roles.cache.find(role => role.name === 'gold');
-            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'blau (hihi)'));
+            role = msg.guild.roles.cache.find(role => role.name === 'global general');
+            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'general'));
+        case 40:
+            role = msg.guild.roles.cache.find(role => role.name === 'general');
+            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'major general'));
             break;
-        case 10:
-            role = msg.guild.roles.cache.find(role => role.name === 'blau (hihi)');
-            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'orange'));
+        case 37:
+            role = msg.guild.roles.cache.find(role => role.name === 'major general');
+            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'colonel'));
             break;
-        case 5:
-            role = msg.guild.roles.cache.find(role => role.name === 'orange');
+        case 33:
+            role = msg.guild.roles.cache.find(role => role.name === 'colonel');
+            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'captain'));
+        case 25:
+            role = msg.guild.roles.cache.find(role => role.name === 'captain');
+            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'sergeant major'));
+        case 17:
+            role = msg.guild.roles.cache.find(role => role.name === 'sergeant major');
+            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'sergeant'));
+            break;
+        case 9:
+            role = msg.guild.roles.cache.find(role => role.name === 'sergeant');
+            member.roles.remove(msg.guild.roles.cache.find(role => role.name === 'private'));
+            break;
+        case 1:
+            role = msg.guild.roles.cache.find(role => role.name === 'private');
     }
     if (role) member.roles.add(role);
     msg.channel.send(`HGW! ${msg.author} du bist nun lvl ${Math.floor(xp/1000)}`);
